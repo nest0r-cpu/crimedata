@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF Crime Analytics - Pie Chart</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Include the dark mode script -->
+  <script defer src="darkmode.js"></script>
+  <!-- Include Chart.js and the piechart.js for the pie chart -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="piechart.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>SF Crime Analytics</h1>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="bar.html">Bar Chart</a>
+          <a href="pie.html">Pie Chart</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="chart-section">
+      <h2>Pie Chart - Crime Distribution</h2>
+      <div id="pie-chart-container">
+        <canvas id="crimePieChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SF Crime Analytics. All rights reserved.</p>
+  </footer>
+</body>
+</html>

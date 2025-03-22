@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    async function generateBarChart(canvasId) {
+    async function generatePieChart(canvasId) {
         const data = await fetchCrimeData();
         if (!data) return;
 
@@ -23,34 +23,44 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const ctx = document.getElementById(canvasId).getContext("2d");
         new Chart(ctx, {
-            type: "bar",
+            type: "pie",
             data: {
                 labels: Object.keys(crimeCounts),
                 datasets: [{
-                    label: "Crime Count",
                     data: Object.values(crimeCounts),
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
-                    borderColor: "rgb(128, 99, 255)",
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.5)",
+                        "rgba(54, 162, 235, 0.5)",
+                        "rgba(255, 206, 86, 0.5)",
+                        "rgba(75, 192, 192, 0.5)",
+                        "rgba(153, 102, 255, 0.5)",
+                        "rgba(255, 159, 64, 0.5)"
+                    ],
+                    borderColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(54, 162, 235)",
+                        "rgb(255, 206, 86)",
+                        "rgb(75, 192, 192)",
+                        "rgb(153, 102, 255)",
+                        "rgb(255, 159, 64)"
+                    ],
                     borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true }
-                }
+                maintainAspectRatio: false
             }
         });
     }
 
-    // Generate the full page bar chart if canvas exists
-    if (document.getElementById("crimeChart")) {
-        generateBarChart("crimeChart");
+    // Generate the full page pie chart if canvas exists
+    if (document.getElementById("crimePieChart")) {
+        generatePieChart("crimePieChart");
     }
 
-    // Also generate the preview bar chart if the preview canvas exists
-    if (document.getElementById("barPreviewChart")) {
-        generateBarChart("barPreviewChart");
+    // Also generate the preview pie chart if the preview canvas exists
+    if (document.getElementById("piePreviewChart")) {
+        generatePieChart("piePreviewChart");
     }
 });
