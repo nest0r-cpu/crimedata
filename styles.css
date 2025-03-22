@@ -1,17 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #007bff;
+    padding: 1rem;
+    color: white;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+}
+
+#controls {
+    margin: 20px 0;
 }
 
 #chart-container {
-    width: 80%;
+    width: 90%;
+    max-width: 800px;
     margin: auto;
-    padding: 20px;
 }
 
 #map-container {
     height: 500px;
-    width: 80%;
-    margin: auto;
-    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #444;
+}
+
+.dark-mode #map-container {
+    border: 1px solid white;
 }

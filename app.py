@@ -1,28 +1,39 @@
 from flask import Flask, jsonify
 import requests
-import pandas as pd
 
 app = Flask(__name__)
 
-# API Endpoint from SF Open Data
-SF_CRIME_API = "https://data.sfgov.org/resource/wg3w-h783.json?$limit=1000"
+# ✅ Correct API Endpoint
+SF_CRIME_API_URL = "https://data.sfgov.org/resource/gnap-fj3t.json?$limit=1000"
 
 def fetch_crime_data():
-    response = requests.get(SF_CRIME_API)
-    if response.status_code == 200:
+    """Fetch real-time crime data from SF Open Data API."""
+    try:
+        response = requests.get(SF_CRIME_API_URL)
+        response.raise_for_status()
         return response.json()
-    return []
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching crime data: {e}")
+        return []
 
 @app.route('/crime-data', methods=['GET'])
 def get_crime_data():
+    """API route to return formatted crime data."""
     data = fetch_crime_data()
-    df = pd.DataFrame(data)
 
-    # Select relevant columns
-    columns = ["incident_date", "incident_category", "police_district", "latitude", "longitude"]
-    df = df[columns].dropna()
+    formatted_data = []
+    for incident in data:
+        formatted_data.append({
+            "incident_date": incident.get("call_date_time", "Unknown"),
+            "category": incident.get("call_type", "Unknown"),
+            "description": incident.get("call_type_group", "Unknown"),
+            "resolution": incident.get("disposition", "Unknown"),
+            "latitude": incident.get("latitude"),
+            "longitude": incident.get("longitude"),
+            "address": incident.get("address", "Unknown"),
+        })
 
-    return jsonify(df.to_dict(orient="records"))
+    return jsonify(formatted_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

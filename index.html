@@ -10,12 +10,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>San Francisco Crime Dashboard</h1>
-    <div id="chart-container">
+    <nav>
+        <h1>SF Crime Dashboard</h1>
+        <button id="darkModeToggle">🌙</button>
+    </nav>
+
+    <section id="controls">
+        <label for="crimeType">Filter Crime Type:</label>
+        <select id="crimeType">
+            <option value="all">All</option>
+            <option value="theft">Theft</option>
+            <option value="assault">Assault</option>
+            <option value="burglary">Burglary</option>
+        </select>
+    </section>
+    
+    <section id="map-container"></section>
+
+    <section id="chart-container">
         <canvas id="crimeChart"></canvas>
-    </div>
-    <div id="map-container"></div>
+    </section>
+
+
 </body>
 </html>
