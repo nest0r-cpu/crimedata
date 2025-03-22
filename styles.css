@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#chart-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+#map-container {
+    height: 500px;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #ddd;
+}
