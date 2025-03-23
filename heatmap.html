@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Map - SF Crime Analytics</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="js/darkmode.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><i class="fas fa-shield-alt"></i> SF Crime Analytics</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="key-stats.html"><i class="fas fa-chart-bar"></i> Key Statistics</a></li>
+                <li><a href="heatmap.html"><i class="fas fa-fire"></i> Heat Map</a></li>
+                <li><a href="resources.html"><i class="fas fa-hands-helping"></i> Resources</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1><i class="fas fa-fire"></i> Crime Heat Map</h1>
+            <div class="dashboard-description">
+                <p>
+                    This heat map visualization shows the concentration of reported crimes across San Francisco. 
+                    Areas with higher concentrations of crime appear as "hot spots" in red, while areas with 
+                    lower crime rates appear in cooler colors. This visualization helps identify patterns and 
+                    high-risk areas in the city.
+                </p>
+                <p>
+                    The intensity of the heat map is based on the number of reported incidents in each area. 
+                    This can help law enforcement agencies optimize patrol routes and resource allocation, 
+                    while also helping residents and businesses make informed decisions about safety.
+                </p>
+            </div>
+        </section>
+
+        <section id="heatmap-section">
+            <div class="map-container">
+                <div id="heatmap-container"></div>
+            </div>
+            <div class="heatmap-controls">
+                <div class="control-group">
+                    <label for="timeRange">Time Range:</label>
+                    <select id="timeRange">
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                        <option value="60d">Last 60 Days</option>
+                        <option value="90d">Last 90+ Days</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-hand-holding-heart"></i> Support Our Mission</h3>
+                <ul>
+                    <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/neighborhood-watch" target="_blank"><i class="fas fa-users"></i> Join Neighborhood Watch</a></li>
+                    <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/volunteer" target="_blank"><i class="fas fa-user-plus"></i> Volunteer with SFPD</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-phone-alt"></i> Report Crime</h3>
+                <ul>
+                    <li><a href="tel:911"><i class="fas fa-phone"></i> Emergency: 911</a></li>
+                    <li><a href="tel:4155530123"><i class="fas fa-phone"></i> Non-Emergency: (415) 553-0123</a></li>
+                    <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/online-reporting" target="_blank"><i class="fas fa-envelope"></i> Online Reporting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-hands-helping"></i> Community Resources</h3>
+                <ul>
+                    <li><a href="https://www.sanfranciscopolice.org/" target="_blank"><i class="fas fa-building"></i> SFPD Official Website</a></li>
+                    <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement" target="_blank"><i class="fas fa-comments"></i> Community Engagement</a></li>
+                    <li><a href="https://www.sanfranciscopolice.org/stay-safe/crime-prevention" target="_blank"><i class="fas fa-shield-alt"></i> Crime Prevention Tips</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/heatmap.js"></script>
+</body>
+</html> 

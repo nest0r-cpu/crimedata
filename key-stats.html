@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Crime Analytics - Key Statistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="js/darkmode.js"></script>
+    <script defer src="js/mobile-menu.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><i class="fas fa-shield-alt"></i> SF Crime Analytics</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="key-stats.html"><i class="fas fa-chart-bar"></i> Key Statistics</a></li>
+                <li><a href="heatmap.html"><i class="fas fa-fire"></i> Heat Map</a></li>
+                <li><a href="resources.html"><i class="fas fa-hands-helping"></i> Resources</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Hi 👋 Welcome to the Visual Hot Spot!</h1>
+            <div class="dashboard-description">
+                <p>
+                    This dashboard provides a <em>detailed analysis</em> of crime patterns in San Francisco through <strong>four key visualizations</strong>. The <em>Crime Categories</em> pie chart shows the distribution of different types of crimes, helping identify the <strong>most prevalent criminal activities</strong> in the city. The <em>Geographic Distribution</em> bar chart reveals which police districts experience the <strong>highest crime rates</strong>, enabling targeted law enforcement efforts.
+                </p>
+                <p>
+                    The <em>Time of Day Analysis</em> line chart illustrates when crimes are most commonly reported throughout the day, offering insights into <strong>temporal patterns</strong> that can inform police patrol schedules and community safety measures. Finally, the <em>Major Crime Categories</em> bar chart breaks down incidents into <strong>six main categories</strong> - Theft, Drug Related, Assault, Non-Violent, Vehicle Related, and Other - providing a clear overview of the city's most significant crime types and their relative frequencies.
+                </p>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-container">
+                <div class="chart-card">
+                    <div class="chart-wrapper" onclick="openModal('crimeCategoriesChart')">
+                        <canvas id="crimeCategoriesChart"></canvas>
+                    </div>
+                    <div class="chart-description">
+                        <h3><i class="fas fa-pie-chart"></i> Crime Categories</h3>
+                        <p><i class="fas fa-info-circle"></i> This pie chart shows the distribution of different types of crimes reported in San Francisco. The data is categorized into major crime types, helping to identify the most prevalent forms of criminal activity in the city. Understanding these patterns is crucial for law enforcement to allocate resources effectively and for policymakers to develop targeted crime prevention strategies. This visualization also helps residents and community organizations identify which types of crimes need more attention and awareness in their neighborhoods.</p>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-wrapper" onclick="openModal('geographicChart')">
+                        <canvas id="geographicChart"></canvas>
+                    </div>
+                    <div class="chart-description">
+                        <h3><i class="fas fa-map-marked-alt"></i> Geographic Distribution</h3>
+                        <p><i class="fas fa-info-circle"></i> This bar chart displays the number of incidents reported in each police district of San Francisco. The data helps identify areas with higher crime rates and understand the spatial distribution of criminal activity across the city. This geographic analysis is essential for law enforcement to optimize patrol routes and resource allocation. It also enables community organizations to focus their crime prevention efforts on high-risk areas and helps residents make informed decisions about safety in different neighborhoods.</p>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-wrapper" onclick="openModal('timeAnalysisChart')">
+                        <canvas id="timeAnalysisChart"></canvas>
+                    </div>
+                    <div class="chart-description">
+                        <h3><i class="fas fa-clock"></i> Time of Day Analysis</h3>
+                        <p><i class="fas fa-info-circle"></i> This line chart shows when crimes are most commonly reported throughout the day in San Francisco. The analysis helps identify peak reporting times and patterns in incident documentation. Understanding these temporal patterns is crucial for law enforcement to optimize patrol schedules and for residents to be more vigilant during high-risk hours. This data can also help businesses and community organizations plan their security measures and outreach programs more effectively.</p>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-wrapper" onclick="openModal('policeResponseChart')">
+                        <canvas id="policeResponseChart"></canvas>
+                    </div>
+                    <div class="chart-description">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Major Crime Categories</h3>
+                        <p><i class="fas fa-info-circle"></i> This bar chart provides a high-level overview of major crime categories in San Francisco. It helps understand the broad distribution of different types of criminal incidents and their relative frequencies. This categorization is essential for law enforcement to prioritize their response strategies and for policymakers to develop effective crime prevention policies. The visualization also helps residents understand the overall crime landscape and identify which types of crimes are most prevalent in their city.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for full-size charts -->
+    <div id="chartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-chart-container">
+                <canvas id="modalChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-hand-holding-heart"></i> Support Our Mission</h3>
+          <ul>
+            <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/neighborhood-watch" target="_blank"><i class="fas fa-users"></i> Join Neighborhood Watch</a></li>
+            <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/volunteer" target="_blank"><i class="fas fa-user-plus"></i> Volunteer with SFPD</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-phone-alt"></i> Report Crime</h3>
+          <ul>
+            <li><a href="tel:911"><i class="fas fa-phone"></i> Emergency: 911</a></li>
+            <li><a href="tel:4155530123"><i class="fas fa-phone"></i> Non-Emergency: (415) 553-0123</a></li>
+            <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement/online-reporting" target="_blank"><i class="fas fa-envelope"></i> Online Reporting</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-hands-helping"></i> Community Resources</h3>
+          <ul>
+            <li><a href="https://www.sanfranciscopolice.org/" target="_blank"><i class="fas fa-building"></i> SFPD Official Website</a></li>
+            <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement" target="_blank"><i class="fas fa-comments"></i> Community Engagement</a></li>
+            <li><a href="https://www.sanfranciscopolice.org/stay-safe/crime-prevention" target="_blank"><i class="fas fa-shield-alt"></i> Crime Prevention Tips</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/key-stats.js"></script>
+</body>
+</html> 

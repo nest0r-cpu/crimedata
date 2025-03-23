@@ -3,47 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About SF Crime Analytics</title>
+  <title>About - SF Crime Analytics</title>
   <link rel="stylesheet" href="styles.css" />
   <!-- Include the dark mode script -->
-  <script defer src="darkmode.js"></script>
+  <script defer src="js/darkmode.js"></script>
+  <script defer src="js/mobile-menu.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">
-        <h1>SF Crime Analytics</h1>
+        <h1><i class="fas fa-shield-alt"></i> SF Crime Analytics</h1>
       </div>
-      <div class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-          <a href="index.html">Home</a>
-          <a href="bar.html">Bar Chart</a>
-          <a href="pie.html">Pie Chart</a>
-          <a href="about.html">About</a>
-        </div>
-      </div>
-      <button id="darkModeToggle">🌙</button>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="key-stats.html"><i class="fas fa-chart-bar"></i> Key Statistics</a></li>
+        <li><a href="heatmap.html"><i class="fas fa-fire"></i> Heat Map</a></li>
+        <li><a href="resources.html"><i class="fas fa-hands-helping"></i> Resources</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      </ul>
+      <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
     </nav>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About SF Crime Analytics</h2>
-      <p>
-        As a San Francisco native, I've witnessed the rapid changes in crime rates across our city.
-        SF Crime Analytics was created to provide a clear, data-driven perspective on the trends and patterns of crime in San Francisco.
-        Using interactive maps and charts, this platform offers insights from various angles to inform public awareness and policy decisions.
-      </p>
-      <p>
-        Our goal is to empower residents with transparent and accessible information, paving the way for a safer community.
-        Stay tuned for additional features and deeper analytics as we continue to expand the platform.
-      </p>
+    <section class="about-section">
+      <h1><i class="fas fa-info-circle"></i> About SF Crime Analytics</h1>
+      
+      <div class="about-content">
+        <div class="about-block">
+          <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+          <p>
+            SF Crime Analytics is dedicated to providing transparent, accurate, and accessible 
+            information about crime patterns in San Francisco. Our goal is to help residents, 
+            businesses, and law enforcement make data-driven decisions about public safety.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <h2><i class="fas fa-database"></i> Data Source</h2>
+          <p>
+            We use the official San Francisco Police Department (SFPD) Incident Reports dataset, 
+            available through the San Francisco Open Data Portal. This dataset is regularly updated 
+            and contains detailed information about reported incidents across the city.
+          </p>
+          <p>
+            API Endpoint: <code>https://data.sfgov.org/resource/wg3w-h783.json</code>
+          </p>
+          <p>
+            The data includes:
+          </p>
+          <ul>
+            <li><i class="fas fa-calendar"></i> Incident dates and times</li>
+            <li><i class="fas fa-map-marker-alt"></i> Precise locations</li>
+            <li><i class="fas fa-file-alt"></i> Incident categories and descriptions</li>
+            <li><i class="fas fa-building"></i> Police districts</li>
+            <li><i class="fas fa-check-circle"></i> Resolution status</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h2><i class="fas fa-code"></i> Technology Stack</h2>
+          <p>
+            Our platform is built using modern web technologies:
+          </p>
+          <ul>
+            <li><i class="fas fa-map"></i> Leaflet.js for interactive maps</li>
+            <li><i class="fas fa-chart-line"></i> Chart.js for data visualization</li>
+            <li><i class="fas fa-paint-brush"></i> Custom CSS for responsive design</li>
+            <li><i class="fas fa-code"></i> Vanilla JavaScript for data processing</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h2><i class="fas fa-sync"></i> Data Updates</h2>
+          <p>
+            The SFPD dataset is updated regularly, and our visualizations reflect the most 
+            current available data. We process and display this information in real-time to 
+            ensure accuracy and relevance.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 SF Crime Analytics. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-hand-holding-heart"></i> Support Our Mission</h3>
+        <ul>
+          <li><a href="https://www.sanfranciscopolice.org/stay-safe/neighborhood-safety-team/neighborhood-watch" target="_blank"><i class="fas fa-users"></i> Join Neighborhood Watch</a></li>
+          <li><a href="https://www.sanfranciscopolice.org/community" target="_blank"><i class="fas fa-user-plus"></i> Volunteer with SFPD</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-phone-alt"></i> Report Crime</h3>
+        <ul>
+          <li><a href="tel:911"><i class="fas fa-phone"></i> Emergency: 911</a></li>
+          <li><a href="tel:4155530123"><i class="fas fa-phone"></i> Non-Emergency: (415) 553-0123</a></li>
+          <li><a href="https://www.sanfranciscopolice.org/get-service/police-reports" target="_blank"><i class="fas fa-envelope"></i> Online Reporting</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-hands-helping"></i> Community Resources</h3>
+        <ul>
+          <li><a href="https://www.sanfranciscopolice.org/" target="_blank"><i class="fas fa-building"></i> SFPD Official Website</a></li>
+          <li><a href="https://www.sanfranciscopolice.org/your-sfpd/explore-department/community-engagement" target="_blank"><i class="fas fa-comments"></i> Community Engagement</a></li>
+          <li><a href="https://www.sanfranciscopolice.org/stay-safe/crime-prevention" target="_blank"><i class="fas fa-shield-alt"></i> Crime Prevention Tips</a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
